@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   get 'status_page/home'
 
   get 'status_page/help'
@@ -7,4 +9,12 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # root 'status_page#home'
+  get 'status_page/contact'
+
+  get  '/help', to: 'status_page#help'
+  get  '/about', to: 'status_page#about'
+  get  '/home', to: 'status_page#home'
+  get  '/contact', to: 'status_page#contact'
+  get  '/signup',  to: 'users#new'
+
 end
