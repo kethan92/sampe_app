@@ -1,5 +1,6 @@
 class StatusPageController < ApplicationController
   def home
+    # byebug
   end
 
   def help
