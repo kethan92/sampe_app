@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'users/new'
 
   get 'status_page/home'
@@ -16,5 +17,8 @@ Rails.application.routes.draw do
   get  '/home', to: 'status_page#home'
   get  '/contact', to: 'status_page#contact'
   get  '/signup',  to: 'users#new'
+  post '/signup',  to: 'users#create'
+
+  resources :users
 
 end
