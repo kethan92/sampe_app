@@ -26,5 +26,6 @@ Rails.application.routes.draw do
 
   # debugger
   resources :users
+  resources :account_activations, only: [:edit]
 
 end
