@@ -14,8 +14,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
     # debugger
-    redirect_to home_url and return unless FILL_IN
+    # redirect_to home_url and return unless FILL_IN
   end
 
   def destroy
@@ -77,7 +78,7 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
+    redirect_to(home_url) unless current_user?(@user)
   end
 
   def admin_user
