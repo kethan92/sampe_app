@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     @microposts = @user.microposts.paginate(page: params[:page])
     # debugger
     # redirect_to home_url and return unless FILL_IN
+    redirect_to home_url and return unless @user.activated?
   end
 
   def destroy
@@ -76,6 +77,8 @@ class UsersController < ApplicationController
     end
   end
 
+  #Before filters
+  # Confirms the correct user
   def correct_user
     @user = User.find(params[:id])
     redirect_to(home_url) unless current_user?(@user)

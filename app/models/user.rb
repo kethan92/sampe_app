@@ -76,6 +76,12 @@ class User < ApplicationRecord
     BCrypt::Password.new(digest).is_password?(token)
   end
 
+  #Defines a proto-feed
+  # See "Following users" for the full implementation
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+
   #Forgets a user
   def forget
     update_attribute(:remember_digest,nil)
